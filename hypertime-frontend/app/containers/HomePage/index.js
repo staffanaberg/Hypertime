@@ -79,7 +79,7 @@ export function HomePage({
           <H2>
             <FormattedMessage {...messages.trymeHeader} />
           </H2>
-          <Form onSubmit={onSubmitForm}>
+          <Form id="gitSearch" onSubmit={onSubmitForm}>
             <label htmlFor="username">
               <FormattedMessage {...messages.trymeMessage} />
               <AtPrefix>
