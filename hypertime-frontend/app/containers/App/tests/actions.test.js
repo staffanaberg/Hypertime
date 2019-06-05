@@ -22,7 +22,6 @@ describe('App Actions', () => {
         repos: fixture,
         username,
       };
-
       expect(reposLoaded(fixture, username)).toEqual(expectedResult);
     });
   });

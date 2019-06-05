@@ -24,5 +24,10 @@ pipeline {
                 sh ' cd hypertime-frontend && npm run test'
             }
         }
+        stage('Deploy') {
+            steps {
+                sh ' az webapp up -n Hypertime2000'
+            }
+        }
     }
 }
