@@ -5,18 +5,14 @@ pipeline {
     tools {nodejs "node"}
 
     stages {
-        stage('Setup') {
-            stages {
-                stage('install dependencies') {
-                    steps {
-                        sh ' cd hypertime-frontend && npm install && cd ..'
-                    }
-                }
-                stage('Build dist files') {
-                    steps {
-                        sh ' cd hypertime-frontend && npm run build && cd ..'
-                    }
-                }
+        stage('install dependencies') {
+            steps {
+                sh ' cd hypertime-frontend && npm install && cd ..'
+            }
+        }
+        stage('Build dist files') {
+            steps {
+                sh ' cd hypertime-frontend && npm run build && cd ..'
             }
         }
         stage('Test') {
