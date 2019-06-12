@@ -5,8 +5,8 @@ pipeline {
     tools {nodejs "node"}
 
     stages {
-        stage('Build') {
-            stages {
+        stage('Setup') {
+            parallel {
                 stage('install dependencies') {
                     steps {
                         sh ' cd hypertime-frontend && npm install && cd ..'
@@ -21,12 +21,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh ' cd hypertime-frontend && npm run test'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                sh ' az webapp up -n Hypertime2000'
+                sh ' cd hypertime-frontend && npm run test && cd ..'
             }
         }
     }
