@@ -15,7 +15,7 @@ pipeline {
                 sh ' cd hypertime-frontend && npm run build && cd ..'
             }
         }
-        stage('Build dist files') {
+        stage('Build echo') {
             steps {
                 sh "echo \"${env.WORKSPACE}\""
             }
