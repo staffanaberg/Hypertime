@@ -22,7 +22,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh 'cd hypertime-frontend && npm run deploy && cd ..'
+                sh 'cd hypertime-frontend && npm run deployFromJenk && cd ..'
             }
         }
         
