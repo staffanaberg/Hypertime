@@ -15,15 +15,21 @@ pipeline {
                 sh ' cd hypertime-frontend && npm run build && cd ..'
             }
         }
-        stage('Test') {
-            steps {
-                sh ' cd hypertime-frontend && npm run test && cd ..'
+        stage('test etc') {
+            parallel {
+                stage('Test') {
+                    steps {
+                        sh ' cd hypertime-frontend && npm run test && cd ..'
+                    }
+                }
+                stage('test 2') {
+                    steps {
+                        sh 'echo test'
+                    }
+                }
+
             }
         }
-        stage('deploy') {
-            steps {
-                sh 'cd hypertime-frontend && az storage blob upload-batch -s build -d "\$web" --account-name hypertime --connection-string="DefaultEndpointsProtocol=https;AccountName=hypertime;AccountKey=/hKquqMB4jLoma30s9HdVXJhiCIf++3loLZQe2nz0RPjPXiMs7xd8B96vFGsvr8lPVpMMVyp7rbBXBQ9+R+XYA==;EndpointSuffix=core.windows.net"'
-            }
         }
     }
 }
