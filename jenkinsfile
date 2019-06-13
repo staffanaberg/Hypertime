@@ -22,7 +22,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh "az storage blob upload-batch -s  \"${env.WORKSPACE}\"/hypertime-frontend/build -d %24web --connection-string=DefaultEndpointsProtocol%3Dhttps%3BAccountName%3Dhypertime%3BAccountKey%3D%2FhKquqMB4jLoma30s9HdVXJhiCIf%2B%2B3loLZQe2nz0RPjPXiMs7xd8B96vFGsvr8lPVpMMVyp7rbBXBQ9%2BR%2BXYA%3D%3D%3BEndpointSuffix%3Dcore.windows.net"
+                sh 'az storage blob upload-batch -s  /var/lib/jenkins/workspace/Hypertime_jenkinsfile/hypertime-frontend/build -d %24web --connection-string="DefaultEndpointsProtocol=https;AccountName=hypertime;AccountKey=/hKquqMB4jLoma30s9HdVXJhiCIf++3loLZQe2nz0RPjPXiMs7xd8B96vFGsvr8lPVpMMVyp7rbBXBQ9+R+XYA==;EndpointSuffix=core.windows.net"'
             }
         }
         
