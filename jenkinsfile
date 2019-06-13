@@ -20,7 +20,7 @@ pipeline {
                 sh ' cd hypertime-frontend && npm run test && cd ..'
             }
         }
-        stage('Test') {
+        stage('log workspace') {
             steps {
                 sh ' echo ${env.WORKSPACE}'
             }
