@@ -9,7 +9,7 @@
   "author": "Max Stoiber",
   "license": "MIT",
   "scripts": {
-    "deploy": "az storage blob upload-batch -s  /var/lib/jenkins/workspace/Hypertime_jenkinsfile/hypertime-frontend/build --destination=$web ",
+    "deploy": "az storage blob upload-batch -s  /var/lib/jenkins/workspace/Hypertime_jenkinsfile/hypertime-frontend/build --destination=$web --connection-string=DefaultEndpointsProtocol=https;AccountName=hypertime;AccountKey=/hKquqMB4jLoma30s9HdVXJhiCIf++3loLZQe2nz0RPjPXiMs7xd8B96vFGsvr8lPVpMMVyp7rbBXBQ9+R+XYA==;EndpointSuffix=core.windows.net",
     "analyze:clean": "rimraf stats.json",
     "preanalyze": "npm run analyze:clean",
     "analyze": "node ./internals/scripts/analyze.js",

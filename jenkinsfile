@@ -22,7 +22,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh 'cd hypertime-frontend && AZURE_STORAGE_CONNECTION_STRING="DefaultEndpointsProtocol=https;AccountName=hypertime;AccountKey=/hKquqMB4jLoma30s9HdVXJhiCIf++3loLZQe2nz0RPjPXiMs7xd8B96vFGsvr8lPVpMMVyp7rbBXBQ9+R+XYA==;EndpointSuffix=core.windows.net" && npm run deploy && cd ..'
+                sh 'cd hypertime-frontend && npm run deploy && cd ..'
             }
         }
         
