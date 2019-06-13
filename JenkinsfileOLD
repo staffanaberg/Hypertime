@@ -5,9 +5,19 @@ pipeline {
     tools {nodejs "node"}
 
     stages {
+        stage('install dependencies') {
+            steps {
+                sh ' cd hypertime-frontend && npm install && cd ..'
+            }
+        }
+        stage('Build dist files') {
+            steps {
+                sh ' cd hypertime-frontend && npm run build && cd ..'
+            }
+        }
         stage('Build echo') {
             steps {
-                sh "echo \"${env.WORKSPACE}\"/Hypertime_jenkinsfile/hypertime-frontend/build"
+                sh "echo \"${env.WORKSPACE}\""
             }
         }
         stage('Deploy') {
