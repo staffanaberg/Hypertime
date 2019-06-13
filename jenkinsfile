@@ -22,12 +22,12 @@ pipeline {
         }
         stage('log workspace') {
             steps {
-                sh ' echo ${env.WORKSPACE}'
+                sh ' echo env.WORKSPACE'
             }
         }
         stage('Deploy') {
             steps {
-                sh "az storage blob upload-batch -s + ${env.WORKSPACE}/hyperslice-frontend/build / -d \$web --account-name hypertime --connection-string=DefaultEndpointsProtocol=https;AccountName=hypertime;AccountKey=/hKquqMB4jLoma30s9HdVXJhiCIf++3loLZQe2nz0RPjPXiMs7xd8B96vFGsvr8lPVpMMVyp7rbBXBQ9+R+XYA==;EndpointSuffix=core.windows.net"
+                sh "az storage blob upload-batch -s + env.WORKSPACE/hyperslice-frontend/build / -d \$web --account-name hypertime --connection-string=DefaultEndpointsProtocol=https;AccountName=hypertime;AccountKey=/hKquqMB4jLoma30s9HdVXJhiCIf++3loLZQe2nz0RPjPXiMs7xd8B96vFGsvr8lPVpMMVyp7rbBXBQ9+R+XYA==;EndpointSuffix=core.windows.net"
             }
         }
         
