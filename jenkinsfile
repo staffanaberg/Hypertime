@@ -20,7 +20,7 @@ pipeline {
                 sh 'cd hypertime-e2e && npm i && node nightwatch.conf.BASIC.js && cd ..'
             }
         }
-        stage('initiate e2e settings') {
+        stage('run e2e') {
             steps {
                 sh 'cd hypertime-e2e && npm run e2e && cd ..'
             }
