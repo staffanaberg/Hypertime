@@ -22,7 +22,7 @@ pipeline {
         }
         stage(' echo blob container') {
             steps {
-                sh "az storage blob list  --container-name \$web  --output table --connection-string=DefaultEndpointsProtocol=https;AccountName=hypertime;AccountKey=/hKquqMB4jLoma30s9HdVXJhiCIf++3loLZQe2nz0RPjPXiMs7xd8B96vFGsvr8lPVpMMVyp7rbBXBQ9+R+XYA==;EndpointSuffix=core.windows.net"
+                sh "cd hypertime-frontend && npm run listblob && cd .."
             }
         }
         stage('Deploy') {
