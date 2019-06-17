@@ -34,7 +34,10 @@ module.exports = {
     "chrome": {
       "desiredCapabilities": {
         "browserName": "chrome",
-        "javascriptEnabled": true // turn off to test progressive enhancement
+        "javascriptEnabled": true, // turn off to test progressive enhancement
+        "chromeOptions" : {
+          "args" : ["--headless", "--no-sandbox"]
+       }
       }
     }
   }
